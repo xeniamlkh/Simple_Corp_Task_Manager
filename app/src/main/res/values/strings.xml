@@ -12,4 +12,8 @@
     <string name="our_team_btn">Our team</string>
     <string name="task_list">TASK LIST</string>
     <string name="add_new_task">ADD NEW TASK</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="save_btn">Save</string>
+    <string name="job_title">Job Title</string>
+    <string name="user_name">User Name</string>
 </resources>
