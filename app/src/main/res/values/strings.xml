@@ -4,4 +4,10 @@
     <string name="today">Today:</string>
     <string name="open_tasks">Open tasks</string>
     <string name="logout">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="our_team">OUR TEAM</string>
+    <string name="add_new_user">Add new user</string>
+    <string name="return_btn">Return</string>
+    <string name="our_team_btn">Our team</string>
 </resources>
