@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Simple Corp Task Manager</string>
+    <string name="authentication">AUTHENTICATION</string>
+    <string name="today">Today:</string>
+    <string name="open_tasks">Open tasks</string>
+    <string name="logout">Logout</string>
 </resources>

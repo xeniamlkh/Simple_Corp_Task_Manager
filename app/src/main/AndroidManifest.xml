@@ -12,6 +12,12 @@
         android:theme="@style/Theme.SimpleCorpTaskManager"
         tools:targetApi="31">
         <activity
+            android:name=".FramePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TodayPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
