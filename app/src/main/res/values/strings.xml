@@ -10,4 +10,6 @@
     <string name="add_new_user">Add new user</string>
     <string name="return_btn">Return</string>
     <string name="our_team_btn">Our team</string>
+    <string name="task_list">TASK LIST</string>
+    <string name="add_new_task">ADD NEW TASK</string>
 </resources>

@@ -7,13 +7,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class TodayPageActivity extends AppCompatActivity {
+    Button buttonOpenTasks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_today_page);
+
+        buttonOpenTasks = findViewById(R.id.btn_open_tasks);
+        buttonOpenTasks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TodayPageActivity.this,
+                        FramePageActivity.class);
+                intent.putExtra("FLAG", "RunTaskListFragment");
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

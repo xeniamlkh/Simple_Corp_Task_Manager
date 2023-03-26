@@ -15,10 +15,15 @@ public class FramePageActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String flag = intent.getStringExtra("FLAG");
 
-        if (flag.equals("RunTeamListFragment")){
+        if (flag.equals("RunTeamListFragment")) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.frame_layout_for_fragments, new TeamListFragment())
+                    .commit();
+        } else if (flag.equals("RunTaskListFragment")) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frame_layout_for_fragments, new TaskListFragment())
                     .commit();
         }
     }
