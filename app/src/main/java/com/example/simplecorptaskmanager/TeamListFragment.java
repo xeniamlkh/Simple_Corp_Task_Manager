@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,6 +23,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -33,6 +35,7 @@ public class TeamListFragment extends Fragment {
     private final String TAG = "Simple Corp Tag Manager LOG";
     private Button btnAddNewUser;
     private Button btnReturnToTodayPage;
+    private ProgressBar progressBar;
 
     private UsersRecyclerViewAdapter usersRecyclerViewAdapter;
     private ArrayList<HashMap> listTemp;
@@ -93,6 +96,7 @@ public class TeamListFragment extends Fragment {
 
         btnAddNewUser = view.findViewById(R.id.btn_add_new_user);
         btnReturnToTodayPage = view.findViewById(R.id.btn_return);
+        progressBar = view.findViewById(R.id.progress_bar_team_list);
 
         recyclerViewUsers = view.findViewById(R.id.team_page_recycler_view);
         recyclerViewUsers.setLayoutManager(new LinearLayoutManager(view.getContext()));
@@ -104,6 +108,7 @@ public class TeamListFragment extends Fragment {
         usersRecyclerViewAdapter = new UsersRecyclerViewAdapter(view.getContext(), dataSource);
         recyclerViewUsers.setAdapter(usersRecyclerViewAdapter);
 
+        progressBar.setVisibility(ProgressBar.VISIBLE);
         db.collection("users")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -115,6 +120,7 @@ public class TeamListFragment extends Fragment {
                             }
                         } else {
                             Log.d(TAG, "Error getting document ", task.getException());
+                            progressBar.setVisibility(ProgressBar.INVISIBLE);
                         }
                         fillDataSourceArray();
                     }
@@ -146,7 +152,9 @@ public class TeamListFragment extends Fragment {
             String userJobTitle = listTemp.get(i).get("jobTitle").toString();
             User user = new User(userName, userJobTitle);
             dataSource.add(user);
+            Collections.sort(dataSource, new SortByName());
             usersRecyclerViewAdapter.notifyDataSetChanged();
+            progressBar.setVisibility(ProgressBar.INVISIBLE);
         }
     }
 }

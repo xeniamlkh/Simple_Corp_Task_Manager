@@ -14,6 +14,13 @@
         android:text="@string/our_team"
         android:textSize="32sp" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar_team_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/team_page_recycler_view"
         android:layout_width="match_parent"
